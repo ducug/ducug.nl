@@ -1,0 +1,19 @@
+[[main]]
+  name   = "Evenementen"
+  url    = "/evenementen/"
+  weight = 1
+
+[[main]]
+  name   = "Sponsors"
+  url    = "/sponsor/"
+  weight = 2
+
+[[main]]
+  name   = "Over ons"
+  url    = "/over/"
+  weight = 3
+
+[[main]]
+  name   = "Contact"
+  url    = "/contact/"
+  weight = 4

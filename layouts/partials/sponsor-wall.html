@@ -1,0 +1,13 @@
+{{ if (hugo.Data).sponsors.sponsor }}
+<div class="dg-sponsor-wall">
+  {{ range (hugo.Data).sponsors.sponsor }}
+  <a href="{{ .url }}" target="_blank" rel="noopener sponsored" title="{{ .name }}">
+    {{ if .logo }}
+    <img src="{{ .logo | relURL }}" alt="{{ .name }}" class="nozoom" loading="lazy">
+    {{ else }}
+    <span>{{ .name }}</span>
+    {{ end }}
+  </a>
+  {{ end }}
+</div>
+{{ end }}

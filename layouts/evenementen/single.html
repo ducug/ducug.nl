@@ -1,0 +1,87 @@
+{{ define "main" }}
+<article>
+
+  {{/* Dark event hero with giant ghost number */}}
+  <header class="dg-event-hero dg-bleed">
+    <div class="dg-event-hero__grid"></div>
+    <div class="dg-wrap dg-event-hero__in">
+      <span class="dg-event-hero__ghost" aria-hidden="true">#{{ .Params.eventNumber }}</span>
+      {{ if .Params.archived }}
+      <p class="dg-kicker dg-kicker--muted">Gearchiveerd evenement</p>
+      {{ else if lt now.Unix .Date.Unix }}
+      <p class="dg-kicker">Volgend evenement</p>
+      {{ else }}
+      <p class="dg-kicker">Meest recente editie</p>
+      {{ end }}
+      <h1>{{ .Title }}</h1>
+      <div class="dg-event-hero__chips">
+        <span class="dg-chip">{{ partial "icon.html" "calendar" }} {{ .Date | time.Format "Monday 2 January 2006" }}</span>
+        <span class="dg-chip">{{ partial "icon.html" "location-dot" }} {{ .Params.location }}</span>
+        <span class="dg-chip dg-chip--muted">Gratis toegang</span>
+        <span class="dg-live-badge" data-live-only hidden>Live · vandaag</span>
+      </div>
+      {{ if and (not .Params.archived) .Params.eventbriteUrl }}
+      <a class="dg-btn dg-btn--primary" href="{{ .Params.eventbriteUrl }}" target="_blank" rel="noopener">Aanmelden via Eventbrite →</a>
+      {{ end }}
+    </div>
+  </header>
+
+  {{ with .Content }}
+  <div class="prose dark:prose-invert max-w-none" style="margin-bottom:3rem">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  {{/* Structured programma (with live highlighting on the day itself) */}}
+  {{ $sessions := partial "event-sessions.html" . }}
+  {{ if $sessions }}
+  <section style="margin-bottom:3rem" data-demo-hide="geen-agenda">
+    <div class="dg-section-head">
+      <h2>Programma</h2>
+      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 JAN 2006" }}</span>
+    </div>
+    {{ partial "schedule.html" . }}
+  </section>
+  {{ end }}
+
+  {{/* Nieuw evenement zonder agenda-JSON: nette melding in plaats van niets.
+       Met sessies een verborgen demo-variant, te testen met ?demo=geen-agenda */}}
+  {{ if or $sessions (not .Params.archived) }}
+  <section style="margin-bottom:3rem"{{ if $sessions }} hidden data-demo-show="geen-agenda"{{ end }}>
+    <div class="dg-section-head">
+      <h2>Programma</h2>
+      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 JAN 2006" }}</span>
+    </div>
+    <p style="color:rgb(var(--color-neutral-500))">De agenda is nog niet bekend. Het programma verschijnt hier zodra het rond is.</p>
+  </section>
+  {{ end }}
+
+  {{/* Photo gallery — drop images in assets/img/events/ducug-NN/ and they appear here */}}
+  {{ $gallery := resources.Match (printf "img/events/ducug-%v/*" .Params.eventNumber) }}
+  {{ with $gallery }}
+  <section style="margin-bottom:3rem">
+    <div class="dg-section-head">
+      <h2>Foto's</h2>
+      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ len . }} FOTO'S</span>
+    </div>
+    <div class="dg-gallery">
+      {{ range . }}
+      {{ $thumb := .Fill "640x480 q75 CatmullRom" }}
+      {{ $full := .Resize "1600x q82" }}
+      <img src="{{ $thumb.RelPermalink }}"
+           data-zoom-src="{{ $full.RelPermalink }}"
+           alt="Foto van {{ $.Title }}"
+           width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+           loading="lazy">
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <nav class="dg-event-nav" aria-label="Evenement-navigatie">
+    {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+    {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+  </nav>
+
+</article>
+{{ end }}
