@@ -14,11 +14,6 @@
   foto   = "img/team/wilco-van-bragt.jpg"
 
 [[lid]]
-  naam   = "Niek Boevink"
-  rol    = "Bestuurslid"
-  foto   = "img/team/niek-boevink.jpg"
-
-[[lid]]
   naam   = "Remko Weijnen"
   rol    = "Bestuurslid"
   foto   = "img/team/remko-weijnen.jpg"
@@ -27,3 +22,8 @@
   naam   = "Bram Wolfs"
   rol    = "Bestuurslid"
   foto   = "img/team/bram-wolfs.jpg"
+
+[[lid]]
+  naam   = "John Billekens"
+  rol    = "Bestuurslid"
+  foto   = "img/team/john-billekens.jpg"
