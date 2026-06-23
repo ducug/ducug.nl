@@ -18,7 +18,4 @@ Vul het onderstaande formulier in om je sessie aan te melden.
 <noscript>
   <a href="https://podio.com/webforms/6694900/518990" target="_blank">Vul het formulier in via Podio</a>
 </noscript>
-<div class="podio-webform-container">
-A webform by Podio - <a class="podio-webform-inner" rel="nofollow" href="https://podio.com">click here</a> to get yours
-</div>
 <!-- END Podio web form -->

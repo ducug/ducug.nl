@@ -14,7 +14,4 @@ Graag wil de DuCUG zich op alle fronten verbeteren. We vragen jullie dan ook om 
 <noscript>
   <a href="https://podio.com/webforms/30673833/2601741" target="_blank">Vul het formulier in via Podio</a>
 </noscript>
-<div class="podio-webform-container">
-Podio - <a class="podio-webform-inner" rel="nofollow" href="https://podio.com">CRM</a> done right
-</div>
 <!-- END Podio web form -->
