@@ -10,13 +10,15 @@
 {{- $latest := index $past 0 -}}
 
 {{/* ============================== Hero ============================== */}}
-<section class="dg-hero dg-bleed">
+{{- $heroImg := resources.Get "img/site/banner.jpg" -}}
+<section class="dg-hero dg-bleed{{ if $heroImg }} dg-hero--photo{{ end }}">
+  {{ with $heroImg }}{{ $b := .Resize "1800x q70" }}<img class="dg-hero__bg" src="{{ $b.RelPermalink }}" alt="" aria-hidden="true" loading="eager">{{ end }}
   <div class="dg-hero__circle" aria-hidden="true"></div>
   <div class="dg-hero__in">
     <div class="dg-hero__copy">
-      <p class="dg-kicker-pill">Dutch Citrix User Group · sinds 2011</p>
-      <h1 class="dg-hero__title">De community <span class="dg-hero__title-accent">dóór en vóór</span> Citrix&#8209;professionals</h1>
-      <p class="dg-hero__lede">Twee keer per jaar komen EUC-, Citrix- en Digital Workspace-specialisten uit heel Nederland samen voor een dag vol technische sessies, klantcases en discussie. Gratis, onafhankelijk en zonder verkooppraatjes.</p>
+      <p class="dg-kicker-pill">{{ .Params.heroKicker | default "Dutch Citrix User Group · sinds 2011" }}</p>
+      <h1 class="dg-hero__title">{{ with .Params.heroTitle }}{{ . | safeHTML }}{{ else }}De community <span class="dg-hero__title-accent">dóór en vóór</span> Citrix&#8209;professionals{{ end }}</h1>
+      <p class="dg-hero__lede">{{ .Params.heroLede | default "Twee keer per jaar komen EUC-, Citrix- en Digital Workspace-specialisten uit heel Nederland samen voor een dag vol technische sessies, klantcases en discussie. De bijeenkomsten zijn toegankelijk voor een brede doelgroep en bieden veel gelegenheid om in contact te komen met gelijkgestemden." }}</p>
       <div class="dg-hero__actions">
         {{ with $next }}
         {{ if .Params.eventbriteUrl }}

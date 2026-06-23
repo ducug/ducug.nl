@@ -2,6 +2,8 @@
 title: "Call For Papers"
 description: "Draag een sessie bij aan een DuCUG evenement"
 kicker: "Bring your own session"
+aliases:
+  - "/call-for-papers/"
 ---
 
 Wil jij een sessie verzorgen op een DuCUG evenement? Wij werken met een **Bring Your Own Session (BYOS)** format waarbij deelnemers zelf sessievoorstellen kunnen indienen. Het programma wordt samengesteld op basis van relevantie en community-interesse.

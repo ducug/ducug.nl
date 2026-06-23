@@ -452,6 +452,34 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
+/* Foto-variant: banner als subtiele achtergrond met overlay voor leesbaarheid.
+   De overlay gebruikt --dg-surface zodat hij in light én dark mode meekleurt. */
+.dg-hero--photo .dg-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.dg-hero--photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 90% 90% at 15% 0%, rgba(45, 107, 207, 0.16), transparent 55%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--dg-surface) 93%, transparent),
+      color-mix(in srgb, var(--dg-surface) 80%, transparent));
+}
+
+.dg-hero--photo .dg-hero__in,
+.dg-hero--photo .dg-hero__circle {
+  z-index: 2;
+}
+
 .dg-hero__circle {
   position: absolute;
   right: -6rem;

@@ -16,6 +16,21 @@ hugo --gc                        # productie-build naar public/
 
 Vereist: Hugo extended ≥ 0.147 en Go (voor de Blowfish-module).
 
+## Homepage-hero aanpassen
+
+De tekst van de hero (bovenste blok van de homepage) staat in de front matter van [content/_index.md](content/_index.md) — niet in de template:
+
+```yaml
+heroKicker: "Dutch Citrix User Group · sinds 2011"
+heroTitle: 'De community <span class="dg-hero__title-accent">dóór en vóór</span> Citrix&#8209;professionals'
+heroLede: "Twee keer per jaar komen EUC-, ..."
+```
+
+- `heroTitle` mag HTML bevatten; gebruik `<span class="dg-hero__title-accent">…</span>` voor het blauwe accentwoord.
+- Laat een veld weg, dan valt de hero terug op de standaardtekst in [layouts/index.html](layouts/index.html).
+- De lopende tekst onder de hero is gewoon de Markdown-body van hetzelfde bestand.
+- **Achtergrondfoto:** zet een `banner.jpg` in `assets/img/site/`. Die wordt automatisch als subtiele achtergrond achter de hero geplaatst (met overlay voor leesbaarheid, werkt in light- én dark-mode). Geen `banner.jpg` = de oude gradient-hero.
+
 ## Structuur
 
 | Pad | Wat |
