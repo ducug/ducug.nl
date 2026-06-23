@@ -3,7 +3,7 @@ title          = "DuCUG #29"
 eventNumber    = 29
 date           = "2026-09-30"
 location       = "De Oude Duikenburg, Voorstraat 30, Echteld"
-eventbriteUrl  = ""
+eventbriteUrl  = "https://www.eventbrite.nl/e/1992054966028?aff=oddtdtcreator"
 archived       = false
 draft          = false
 aliases        = ["/evenementen/citrix-user-group-conferentie-29/"]
