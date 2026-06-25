@@ -2,6 +2,8 @@
 title: "Sponsor worden"
 description: "Steun de Nederlandse Citrix- en EUC-community als sponsor van de DuCUG"
 kicker: "Steun de community"
+aliases:
+  - "/sponsor-worden/"
 ---
 
 De DuCUG is een onafhankelijke stichting zonder financiële steun van Citrix of andere grote organisaties. Onze evenementen zijn gratis voor deelnemers. Dat kunnen we alleen dankzij onze sponsors.

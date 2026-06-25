@@ -2,6 +2,9 @@
 title: "Over de DuCUG"
 description: "De onafhankelijke community voor Citrix- en EUC-professionals in Nederland"
 kicker: "Wie we zijn"
+aliases:
+  - "/over-ducug/"
+  - "/over-de-ducug/"
 ---
 
 ## Wie zijn wij?
