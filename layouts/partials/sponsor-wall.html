@@ -1,9 +1,10 @@
 {{ if (hugo.Data).sponsors.sponsor }}
 <div class="dg-sponsor-wall">
   {{ range (hugo.Data).sponsors.sponsor }}
+  {{ $logo := and .logo (resources.Get .logo) }}
   <a href="{{ .url }}" target="_blank" rel="noopener sponsored" title="{{ .name }}">
-    {{ if .logo }}
-    <img src="{{ .logo | relURL }}" alt="{{ .name }}" class="nozoom" loading="lazy">
+    {{ if $logo }}
+    <img src="{{ $logo.RelPermalink }}" alt="{{ .name }}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" class="nozoom" loading="lazy">
     {{ else }}
     <span>{{ .name }}</span>
     {{ end }}
