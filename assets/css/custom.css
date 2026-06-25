@@ -1516,6 +1516,12 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.06em;
 }
 
+/* Privacyverklaring-link volgt de mono-typografie van de footerbar */
+.dg-footer__bar a {
+  font-size: inherit;
+  text-decoration: underline;
+}
+
 /* --------------------------------------------------------------------------
    Prose & misc polish on content pages
    -------------------------------------------------------------------------- */

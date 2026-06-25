@@ -34,7 +34,7 @@
     </div>
     <div class="dg-footer__bar">
       <span>{{ with .Site.Params.footer.copyright }}{{ . | markdownify }}{{ else }}&copy; {{ now.Format "2006" }} Stichting DuCUG{{ end }}</span>
-      <span>2× per jaar · gratis · dóór en vóór de community</span>
+      <span><a href="{{ "privacy/" | relLangURL }}">Privacyverklaring</a> · 2× per jaar · gratis · dóór en vóór de community</span>
     </div>
   </div>
 

@@ -108,16 +108,10 @@
     setInterval(highlight, 60000);
   });
 
-  /* Cookie-consent banner — alleen tonen als er nog geen keuze is gemaakt.
-     Geeft de keuze door aan Microsoft Clarity via de consentv2-API. */
-  function setConsent(choice) {
-    try { localStorage.setItem("dg-consent", choice); } catch (e) {}
-    if (window.clarity) {
-      window.clarity("consentv2", {
-        ad_Storage: "denied",
-        analytics_Storage: choice === "granted" ? "granted" : "denied"
-      });
-    }
+  /* Cookie-melding — we meten altijd cookieloos, dus dit is een informatieve
+     melding, geen toestemmingsvraag. Eenmaal weggeklikt blijft hij weg. */
+  function dismissNotice() {
+    try { localStorage.setItem("dg-consent", "seen"); } catch (e) {}
     var banner = document.getElementById("dg-consent");
     if (banner) banner.hidden = true;
   }
@@ -125,17 +119,15 @@
   /* De banner-<div> staat ná dit script in de HTML, dus wachten tot de DOM
      klaar is voordat we 'm opzoeken. */
   function initConsent() {
-    var hasChoice = false;
-    try { hasChoice = !!localStorage.getItem("dg-consent"); } catch (e) {}
-    if (hasChoice) return;
+    var seen = false;
+    try { seen = !!localStorage.getItem("dg-consent"); } catch (e) {}
+    if (seen) return;
 
     var banner = document.getElementById("dg-consent");
     if (!banner) return;
     banner.hidden = false;
-    var accept = document.getElementById("dg-consent-accept");
-    var deny = document.getElementById("dg-consent-deny");
-    if (accept) accept.addEventListener("click", function () { setConsent("granted"); });
-    if (deny) deny.addEventListener("click", function () { setConsent("denied"); });
+    var ok = document.getElementById("dg-consent-ok");
+    if (ok) ok.addEventListener("click", dismissNotice);
   }
 
   if (document.readyState === "loading") {
@@ -146,19 +138,17 @@
 })();
 </script>
 
-{{/* DuCUG: cookie-consent banner. Begint verborgen; JS toont 'm alleen als er
-     nog geen keuze is. Tekst bewust generiek: de gebruikte tool en details
-     staan in de privacyverklaring, zodat de banner klopt bij een toolwissel. */}}
+{{/* DuCUG: cookie-melding (geen toestemmingsvraag). We meten altijd cookieloos,
+     dus dit informeert alleen. Tekst bewust generiek: de gebruikte tool en
+     details staan in de privacyverklaring, zodat het klopt bij een toolwissel. */}}
 <div id="dg-consent" class="dg-consent" role="dialog" aria-live="polite"
-     aria-label="Cookie-toestemming" hidden>
+     aria-label="Cookie-melding" hidden>
   <div class="dg-consent__text">
-    <strong>Cookies voor statistieken</strong>
-    <p>We meten anoniem hoe de site gebruikt wordt om 'm te verbeteren. Zonder
-      toestemming gebeurt dit cookieloos. Meer in onze
-      <a href="/privacy/">privacyverklaring</a>.</p>
+    <strong>Anonieme statistieken</strong>
+    <p>We meten cookieloos en anoniem hoe de site gebruikt wordt om 'm te
+      verbeteren. Meer in onze <a href="/privacy/">privacyverklaring</a>.</p>
   </div>
   <div class="dg-consent__actions">
-    <button type="button" id="dg-consent-deny" class="dg-consent__btn dg-consent__btn--ghost">Weigeren</button>
-    <button type="button" id="dg-consent-accept" class="dg-consent__btn dg-consent__btn--primary">Accepteren</button>
+    <button type="button" id="dg-consent-ok" class="dg-consent__btn dg-consent__btn--primary">Begrepen</button>
   </div>
 </div>

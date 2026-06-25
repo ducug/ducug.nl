@@ -18,7 +18,7 @@ We zijn de verwerkingsverantwoordelijke voor de gegevens die via deze website wo
 
 We gebruiken **Microsoft Clarity** om anoniem te begrijpen hoe bezoekers onze website gebruiken, zodat we de site kunnen verbeteren. Clarity verzamelt geaggregeerde gegevens zoals bezochte pagina's, klikgedrag en schermbewegingen.
 
-Standaard draait Clarity **cookieloos**: er worden geen cookies geplaatst en er wordt geen persistent profiel van je opgebouwd. Pas wanneer je via de cookiebanner op **Accepteren** klikt, plaatst Clarity cookies om je bezoeken over meerdere sessies te kunnen herkennen. Je kunt deze toestemming op elk moment intrekken door je browsercookies te wissen.
+Clarity draait op onze website volledig **cookieloos**: er worden geen cookies geplaatst en er wordt geen persistent profiel van je opgebouwd. Per paginabezoek wordt een tijdelijke, anonieme identificatie gebruikt die niet over sessies heen wordt bewaard. We vragen daarom geen cookietoestemming; de melding op de site is louter informatief.
 
 De gegevens worden verwerkt door Microsoft. Meer informatie vind je in het [privacybeleid van Microsoft](https://privacy.microsoft.com/nl-nl/privacystatement).
 
