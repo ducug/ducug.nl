@@ -107,5 +107,57 @@
     highlight();
     setInterval(highlight, 60000);
   });
+
+  /* Cookie-consent banner — alleen tonen als er nog geen keuze is gemaakt.
+     Geeft de keuze door aan Microsoft Clarity via de consentv2-API. */
+  function setConsent(choice) {
+    try { localStorage.setItem("dg-consent", choice); } catch (e) {}
+    if (window.clarity) {
+      window.clarity("consentv2", {
+        ad_Storage: "denied",
+        analytics_Storage: choice === "granted" ? "granted" : "denied"
+      });
+    }
+    var banner = document.getElementById("dg-consent");
+    if (banner) banner.hidden = true;
+  }
+
+  /* De banner-<div> staat ná dit script in de HTML, dus wachten tot de DOM
+     klaar is voordat we 'm opzoeken. */
+  function initConsent() {
+    var hasChoice = false;
+    try { hasChoice = !!localStorage.getItem("dg-consent"); } catch (e) {}
+    if (hasChoice) return;
+
+    var banner = document.getElementById("dg-consent");
+    if (!banner) return;
+    banner.hidden = false;
+    var accept = document.getElementById("dg-consent-accept");
+    var deny = document.getElementById("dg-consent-deny");
+    if (accept) accept.addEventListener("click", function () { setConsent("granted"); });
+    if (deny) deny.addEventListener("click", function () { setConsent("denied"); });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initConsent);
+  } else {
+    initConsent();
+  }
 })();
 </script>
+
+{{/* DuCUG: cookie-consent banner. Begint verborgen; JS toont 'm alleen als er
+     nog geen keuze is. Statistieken = Microsoft Clarity (cookieloos tot akkoord). */}}
+<div id="dg-consent" class="dg-consent" role="dialog" aria-live="polite"
+     aria-label="Cookie-toestemming" hidden>
+  <div class="dg-consent__text">
+    <strong>Cookies voor statistieken</strong>
+    <p>We gebruiken Microsoft Clarity om anoniem te zien hoe de site gebruikt
+      wordt. Zonder toestemming meten we cookieloos. Lees onze
+      <a href="/privacy/">privacyverklaring</a>.</p>
+  </div>
+  <div class="dg-consent__actions">
+    <button type="button" id="dg-consent-deny" class="dg-consent__btn dg-consent__btn--ghost">Weigeren</button>
+    <button type="button" id="dg-consent-accept" class="dg-consent__btn dg-consent__btn--primary">Accepteren</button>
+  </div>
+</div>

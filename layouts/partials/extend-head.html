@@ -3,3 +3,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=Spline+Sans+Mono:wght@400..600&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#080e1a">
+
+{{/* DuCUG: Microsoft Clarity — laadt cookieloos (Consent Mode aan in het
+     Clarity-project). Het script draait meteen in no-consent mode; pas na
+     "Accepteren" in de cookiebanner zet Clarity cookies via consentv2.
+     Een eerder opgeslagen keuze wordt hier direct teruggegeven. */}}
+<script>
+(function (c, l, a, r, i, t, y) {
+  c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+  t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+  y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "xchshqa7al");
+
+/* Eerder gemaakte keuze meteen doorgeven, zodat we niet wachten op de banner. */
+(function () {
+  try {
+    var choice = localStorage.getItem("dg-consent");
+    if (choice === "granted") {
+      window.clarity("consentv2", { ad_Storage: "denied", analytics_Storage: "granted" });
+    } else if (choice === "denied") {
+      window.clarity("consentv2", { ad_Storage: "denied", analytics_Storage: "denied" });
+    }
+    /* Geen keuze: Clarity blijft cookieloos tot de bezoeker kiest. */
+  } catch (e) { /* localStorage geblokkeerd: cookieloos blijven */ }
+})();
+</script>
