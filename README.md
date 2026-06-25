@@ -40,11 +40,25 @@ heroLede: "Twee keer per jaar komen EUC-, ..."
 | `assets/img/events/ducug-NN/` | Foto's per editie, verschijnen automatisch als galerij op de evenementpagina |
 | `schemas/agenda.schema.json` | JSON Schema voor de agenda's (autocomplete + validatie in VS Code) |
 | `data/sponsors.toml` | Sponsorwall (homepage, sponsorpagina) |
-| `data/bestuur.toml` | Bestuursleden ("Over ons", foto's in `static/img/team/`) |
+| `data/bestuur.toml` | Bestuursleden ("Over ons", foto's in `assets/img/team/`) |
 | `assets/css/custom.css` | Volledig design-systeem (alle `dg-*` classes) |
 | `assets/css/schemes/ducug.css` | Kleurenschema (Blowfish `colorScheme = "ducug"`) |
 | `layouts/partials/schedule.html` | Programma-timeline (via `event-sessions.html`) |
 | `layouts/partials/extend-footer.html` | JS: countdown, scroll-reveal, live-agenda-logica |
+
+## Redirects
+
+De site draait op **GitHub Pages**, dat géén `_redirects`-bestand ondersteunt (dat is een Netlify/Cloudflare-feature). Redirects lopen daarom uitsluitend via **Hugo `aliases`** in de front matter van de doelpagina — Hugo genereert daar echte redirect-pagina's voor die op elke host werken.
+
+Een oude URL laten doorverwijzen naar een pagina = een `aliases`-regel toevoegen aan die pagina:
+
+```yaml
+aliases:
+  - "/oude-url/"
+  - "/nog-een-oude-url/"
+```
+
+De evenementpagina's (`ducug-NN.md`) bevatten al aliases voor hun oude WordPress-slugs. RSS leeft op `/index.xml`; de oude `/feed/`-URL's worden niet meer geredirect.
 
 ## Evenement toevoegen
 
