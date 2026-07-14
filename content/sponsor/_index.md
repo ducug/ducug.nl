@@ -1,45 +1,55 @@
 ---
-title: "Sponsor worden"
+title: "Sponsor"
 description: "Steun de Nederlandse Citrix- en EUC-community als sponsor van de DuCUG"
 kicker: "Steun de community"
 aliases:
   - "/sponsor-worden/"
 ---
 
-De DuCUG is een onafhankelijke stichting zonder financiële steun van Citrix of andere grote organisaties. Onze evenementen zijn gratis voor deelnemers. Dat kunnen we alleen dankzij onze sponsors.
+De DuCUG is een onafhankelijke stichting die volledig afhankelijk is van financiële steun van sponsoren om de evenementen te kunnen verzorgen. We zijn dan ook trots dat onderstaande sponsoren de DuCUG ondersteunen.
 
 {{< sponsorwall >}}
 
-Wij organiseren twee evenementen per jaar, elk met een specifiek technisch thema. **Sponsorende organisaties krijgen geen presentatieslot**. Wij hanteren een strikt technisch programma om commerciële sessies te voorkomen.
+## Sponsor worden.
 
-## Sponsorpakketten
+De DuCUG organiseert 2x per jaar evenementen voor de Citrix community. We brengen gelijkgestemde professionals samen en bieden een platform om kennis en ervaringen uit te wisselen. Om deze evenementen mogelijk te maken is de DuCUG volledig afhankelijk van financiële ondersteuning van sponsoren. De DuCUG biedt de volgende sponsormogelijkheden:
 
-### Evenement sponsoring
-
-- Logo op de evenementenpagina, presentatieslides en communicatie
-- Eén gegarandeerde deelnemersplaats (ook bij uitverkochte evenementen)
-- Standbanner aanwezig op het evenement
-- Mogelijkheid tot uitdelen van give-aways en goodybag-items
-
-### Jaarsponsoring
-
-- Logo op de website gedurende 12 maanden én op evenementmaterialen
-- Twee gegarandeerde deelnemersplaatsen
-- Standbanner en promotiemogelijkheden op beide evenementen
-
-### Website sponsoring
+### Brons sponsoring
 
 - Logo op de website gedurende 12 maanden
 
-## Voorwaarden
+### Zilver sponsoring
 
-- Aanmelding uiterlijk twee weken vóór het evenement
-- Jaarsponsorpakketten zijn uitsluitend beschikbaar bij het eerste evenement van het jaar
-- Activering na ontvangst van betaling
+- Logo op de webpagina van het betreffende evenement
+- 1 gegarandeerde deelnemers aan het event
+- Opstellen van een staande banner in de evenement ruimte
+- Mogelijkheid tot het aanbieden van “giveaways”
+- Mogelijkheid tot het aanbieden van “goodies”.
+
+### Goud sponsoring
+
+- Logo op de website gedurende 1 kalander jaar
+- Logo op de webpagina’s van het betreffende evenementen
+- 2 gegarandeerde deelnemers aan het event
+- Opstellen van een staande banner in de evenement ruimte
+- Mogelijkheid tot het aanbieden van “giveaways”
+- Mogelijkheid tot het aanbieden van “goodies”.
+
+### Platinum sponsoring
+
+- Logo op de website gedurende 1 kalander jaar
+- 3 gegarandeerde deelnemers aan het event
+- Opstellen van een staande banner in de evenement ruimte
+- Mogelijkheid tot het aanbieden van “giveaways”
+- Mogelijkheid tot het aanbieden van “goodies”
+- Speciale vermelding van de sponsor tijdens de opening van de betreffende evenementen
+- 1x een sessieslot van 20 minuten op een van de evenementen (1x per jaar)
+- Mogelijkheid door de sponsor te organiseren avondsessie waarbij de deelnemers via de DuCUG uitgenodigd worden
+- Ontvangen van de opt-in deelnemerslijst van de betreffende evenementen
 
 ## Interesse?
 
-Vul het onderstaande formulier in, of neem contact op via [info@ducug.nl](mailto:info@ducug.nl).
+Vul het onderstaande formulier in.
 
 <!-- BEGIN Podio web form -->
 <script src="https://podio.com/webforms/6266726/488258.js"></script>

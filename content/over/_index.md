@@ -23,6 +23,5 @@ Zes Citrix-professionals richtten de DuCUG op in oktober 2011, geïnspireerd doo
 
 ## Contact
 
-**Stichting DuCUG**  
-KvK-nummer: 54456754  
-E-mail: [info@ducug.nl](mailto:info@ducug.nl)
+**Stichting DuCUG**
+KvK-nummer: 54456754

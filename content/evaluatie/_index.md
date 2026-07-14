@@ -4,7 +4,7 @@ description: "Geef je feedback op het DuCUG evenement"
 kicker: "Jouw feedback telt"
 ---
 
-Graag wil de DuCUG zich op alle fronten verbeteren. We vragen jullie dan ook om deze evaluatie in te vullen zodat we jullie op- en/of aanmerkingen kunnen meenemen in de organisatie van volgende evenementen!
+De DuCUG hoort graag wat er nog beter kan. We vragen jullie dan ook om naar ieder evenement onderstaande evaluatie in te vullen zodat we jullie op- en/of aanmerkingen kunnen meenemen in de organisatie van volgende evenementen!
 
 <!-- BEGIN Podio web form -->
 <script src="https://podio.com/webforms/30673833/2601741.js"></script>

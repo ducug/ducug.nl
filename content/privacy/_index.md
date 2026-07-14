@@ -10,7 +10,6 @@ Stichting DuCUG hecht waarde aan je privacy. In deze verklaring leggen we uit we
 
 **Stichting DuCUG**
 KvK-nummer: 54456754
-E-mail: [info@ducug.nl](mailto:info@ducug.nl)
 
 We zijn de verwerkingsverantwoordelijke voor de gegevens die via deze website worden verzameld.
 
@@ -34,7 +33,7 @@ Wanneer je je aanmeldt voor een evenement of contact met ons opneemt, verwerken 
 
 ## Je rechten
 
-Je hebt het recht om je gegevens in te zien, te laten corrigeren of te laten verwijderen. Stuur hiervoor een e-mail naar [info@ducug.nl](mailto:info@ducug.nl).
+Je hebt het recht om je gegevens in te zien, te laten corrigeren of te laten verwijderen. Contacteer ons via het contact formulier.
 
 ## Wijzigingen
 

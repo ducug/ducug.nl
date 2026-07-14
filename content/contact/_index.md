@@ -7,7 +7,6 @@ kicker: "Vragen of opmerkingen"
 Heb je vragen over onze evenementen, sponsoring of heb je een opmerking? Vul het onderstaande formulier in en we reageren zo snel mogelijk.
 
 **Stichting DuCUG**
-E-mail: [info@ducug.nl](mailto:info@ducug.nl)
 KvK-nummer: 54456754
 
 <!-- BEGIN Podio web form -->

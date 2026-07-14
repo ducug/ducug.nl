@@ -28,13 +28,12 @@
           <li><a href="{{ "cfp/" | relLangURL }}">Call for Papers</a></li>
           <li><a href="{{ "evaluatie/" | relLangURL }}">Evaluatie</a></li>
           <li><a href="{{ "sponsor/" | relLangURL }}">Sponsor worden</a></li>
-          <li><a href="mailto:info@ducug.nl">info@ducug.nl</a></li>
         </ul>
       </div>
     </div>
     <div class="dg-footer__bar">
       <span>{{ with .Site.Params.footer.copyright }}{{ . | markdownify }}{{ else }}&copy; {{ now.Format "2006" }} Stichting DuCUG{{ end }}</span>
-      <span><a href="{{ "privacy/" | relLangURL }}">Privacyverklaring</a> · 2× per jaar · gratis · dóór en vóór de community</span>
+      <span><a href="{{ "privacy/" | relLangURL }}">Privacyverklaring</a> · dóór en vóór de community</span>
     </div>
   </div>
 
