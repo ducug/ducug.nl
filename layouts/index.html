@@ -12,7 +12,7 @@
 {{/* ============================== Hero ============================== */}}
 {{- $heroImg := resources.Get "img/site/banner.jpg" -}}
 <section class="dg-hero dg-bleed{{ if $heroImg }} dg-hero--photo{{ end }}">
-  {{ with $heroImg }}{{ $b := .Resize "1800x q70" }}<img class="dg-hero__bg" src="{{ $b.RelPermalink }}" alt="" aria-hidden="true" loading="eager">{{ end }}
+  {{ with $heroImg }}{{ $b := .Resize "1800x q70" }}<img class="dg-hero__bg nozoom" src="{{ $b.RelPermalink }}" alt="" aria-hidden="true" loading="eager">{{ end }}
   <div class="dg-hero__circle" aria-hidden="true"></div>
   <div class="dg-hero__in">
     <div class="dg-hero__copy">

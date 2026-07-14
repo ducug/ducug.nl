@@ -4,7 +4,7 @@
   {{ $foto := and .foto (resources.Get .foto) }}
   <div class="dg-board__card">
     {{ if $foto }}
-    <img src="{{ $foto.RelPermalink }}" alt="{{ .naam }}" width="{{ $foto.Width }}" height="{{ $foto.Height }}" class="nozoom" loading="lazy">
+    <img src="{{ $foto.RelPermalink }}" alt="{{ .naam }}" width="{{ $foto.Width }}" height="{{ $foto.Height }}" loading="lazy">
     {{ end }}
     <div class="dg-board__info">
       <p class="dg-board__name">{{ .naam }}</p>
