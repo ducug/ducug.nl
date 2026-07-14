@@ -108,6 +108,40 @@
     setInterval(highlight, 60000);
   });
 
+  /* Lightbox: galerij- en stuurgroepfoto's openen op ware grootte en
+     verhouding. data-zoom-src wijst naar de hires-versie, anders de src zelf. */
+  var zoomImgs = document.querySelectorAll(".dg-gallery img, .dg-board__card img");
+  if (zoomImgs.length) {
+    var lightbox = document.createElement("div");
+    lightbox.className = "dg-lightbox";
+    lightbox.hidden = true;
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-label", "Fotoweergave");
+    var lightboxImg = document.createElement("img");
+    lightbox.appendChild(lightboxImg);
+    document.body.appendChild(lightbox);
+
+    var closeLightbox = function () {
+      lightbox.hidden = true;
+      lightboxImg.removeAttribute("src");
+      document.documentElement.style.overflow = "";
+    };
+
+    lightbox.addEventListener("click", closeLightbox);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
+    });
+
+    zoomImgs.forEach(function (img) {
+      img.addEventListener("click", function () {
+        lightboxImg.src = img.getAttribute("data-zoom-src") || img.currentSrc || img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.hidden = false;
+        document.documentElement.style.overflow = "hidden";
+      });
+    });
+  }
+
   /* Cookie-melding — we meten altijd cookieloos, dus dit is een informatieve
      melding, geen toestemmingsvraag. Eenmaal weggeklikt blijft hij weg. */
   function dismissNotice() {

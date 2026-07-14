@@ -1410,6 +1410,7 @@ h1, h2, h3, h4, h5, h6 {
   filter: saturate(0.85);
   transition: filter 0.3s;
   margin: 0 !important;
+  cursor: zoom-in;
 }
 
 .dg-board__card:hover img {
@@ -1641,6 +1642,30 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
   }
+}
+
+/* Lightbox — toont galerij- en stuurgroepfoto's op ware verhouding */
+.dg-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(9, 18, 35, 0.88);
+  cursor: zoom-out;
+}
+
+.dg-lightbox[hidden] { display: none; }
+
+.dg-lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 /* ============================== BYOS banner — navy band ============================== */

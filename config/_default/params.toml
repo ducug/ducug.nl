@@ -1,7 +1,7 @@
 colorScheme           = "ducug"
 defaultAppearance     = "light"
 autoSwitchAppearance  = true
-disableImageZoom      = false
+disableImageZoom      = true
 isoCode               = "nl"
 
 description = "De onafhankelijke community voor EUC-, Citrix- en Digital Workspace-professionals in Nederland."
