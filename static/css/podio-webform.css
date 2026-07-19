@@ -1,0 +1,217 @@
+/* ==========================================================================
+   DuCUG — Podio webform custom CSS
+   ========================================================================== */
+/*
+   BELANGRIJK: dit bestand wordt NIET automatisch geladen op ducug.nl.
+   De Podio webforms draaien in een <iframe> die rechtstreeks vanaf podio.com
+   wordt geserveerd (cross-origin), dus een <link>/@import vanaf onze site
+   bereikt die iframe niet.
+
+   Je moet deze CSS handmatig plakken in Podio zelf, per formulier:
+     Podio > je app > Webforms > (formulier) > Style > Custom CSS
+
+   Geverifieerd tegen de echte iframe-markup van
+   https://podio.com/webforms/6266726/488258 (sponsor-contactformulier):
+
+   <div class="container">
+     <form class="webforms" id="webform">
+       <h1 class="webforms__heading">...</h1>
+       <div class="webforms__description">...</div>
+       <div id="webforms__fields-container">
+         <div class="form-group">
+           <label class="webforms__label" for="field_x">Label *</label>
+           <div class="webforms__field text-field">
+             <input type="text" class="form-control" />
+           </div>
+         </div>
+         ...
+         <div class="webforms__field category-field">
+           <select class="form-control">...</select>
+         </div>
+       </div>
+       <div class="webforms__captcha">...</div>
+       <div class="webforms__submit-box form-group">
+         <button class="btn btn-primary">Versturen</button>
+       </div>
+     </form>
+   </div>
+
+   Zelfde kleuren/typografie als assets/css/schemes/ducug.css.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Bricolage+Grotesque:wght@700;800&display=swap");
+
+body {
+  background: #ffffff;
+  color: #13294d;
+  font-family: "Instrument Sans", "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.75rem 2rem;
+}
+
+/* Podio's "clean" theme tekent een verticale lijn links van de velden;
+   geef die lijn ademruimte in plaats van tegen de labels aan te plakken */
+#webforms__fields-container {
+  padding-left: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Heading & description (meestal leeg, maar voor de zekerheid gestyled)
+   -------------------------------------------------------------------------- */
+
+.webforms__heading {
+  font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: #13294d;
+  margin: 0 0 0.5rem;
+}
+
+.webforms__description {
+  color: #51648a;
+  margin: 0 0 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Velden
+   -------------------------------------------------------------------------- */
+
+.form-group {
+  margin-bottom: 1.4rem;
+}
+
+label.webforms__label {
+  display: block;
+  font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+  color: #13294d;
+  margin-bottom: 0.4rem;
+}
+
+.help-block {
+  font-size: 0.82rem;
+  color: #51648a;
+  margin-top: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   Inputs, textareas, selects — allemaal via .form-control
+   -------------------------------------------------------------------------- */
+
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Instrument Sans", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  color: #13294d;
+  background: #ffffff;
+  border: 1.5px solid #e1e9f3;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea.form-control {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2d6bcf;
+  box-shadow: 0 0 0 3px rgba(45, 107, 207, 0.15);
+}
+
+::placeholder {
+  color: #9db1d4;
+}
+
+/* Checkboxes & radio's (bv. bij category-field met display: inline) */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #2d6bcf;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* --------------------------------------------------------------------------
+   Submit-knop — DuCUG pill-stijl (zelfde als .dg-btn--primary)
+   -------------------------------------------------------------------------- */
+
+.webforms__submit-box {
+  margin-top: 1.8rem;
+}
+
+.btn.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: 0.96rem;
+  line-height: 1;
+  color: #ffffff;
+  background: #2d6bcf;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -10px rgba(45, 107, 207, 0.65);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn.btn-primary:hover {
+  background: #1f55b0;
+  transform: translateY(-2px);
+}
+
+.btn.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Validatiefouten
+   -------------------------------------------------------------------------- */
+
+.has-error .form-control {
+  border-color: #d9523e;
+}
+
+.has-error .help-block {
+  color: #d9523e;
+}
+
+/* --------------------------------------------------------------------------
+   "A webform by Podio" footer verbergen
+   -------------------------------------------------------------------------- */
+
+#webforms__footer {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Links (bv. privacyverklaring)
+   -------------------------------------------------------------------------- */
+
+a {
+  color: #2d6bcf;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: #1f55b0;
+}

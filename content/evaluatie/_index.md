@@ -2,6 +2,8 @@
 title: "Evaluatie"
 description: "Geef je feedback op het DuCUG evenement"
 kicker: "Jouw feedback telt"
+aliases:
+  - "/eval/"
 ---
 
 De DuCUG hoort graag wat er nog beter kan. We vragen jullie dan ook om naar ieder evenement onderstaande evaluatie in te vullen zodat we jullie op- en/of aanmerkingen kunnen meenemen in de organisatie van volgende evenementen!
