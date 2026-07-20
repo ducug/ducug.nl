@@ -1160,6 +1160,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   right: 0;
   top: 50%;
+  z-index: 0;
   transform: translateY(-50%);
   font-family: var(--dg-display);
   font-weight: 800;
@@ -1181,6 +1182,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dg-event-hero__chips {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
