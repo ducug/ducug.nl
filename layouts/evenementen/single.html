@@ -44,6 +44,19 @@
   </section>
   {{ end }}
 
+  {{/* Evaluatie-CTA: tonen vanaf de dag van het evenement zelf */}}
+  {{ if not (now.Before .Date) }}
+  <section style="margin-bottom:3rem">
+    <div class="dg-cta-band">
+      <div>
+        <h2>Was je erbij?</h2>
+        <p>Help ons de volgende editie te verbeteren en vul de evaluatie van {{ .Title }} in.</p>
+      </div>
+      <a class="dg-btn dg-btn--ghost" href="{{ "evaluatie/" | relLangURL }}">Evaluatie invullen →</a>
+    </div>
+  </section>
+  {{ end }}
+
   {{/* Nieuw evenement zonder agenda-JSON: nette melding in plaats van niets.
        Met sessies een verborgen demo-variant, te testen met ?demo=geen-agenda */}}
   {{ if or $sessions (not .Params.archived) }}
@@ -74,19 +87,6 @@
            width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
            loading="lazy">
       {{ end }}
-    </div>
-  </section>
-  {{ end }}
-
-  {{/* Evaluatie-CTA: tonen vanaf de dag van het evenement zelf */}}
-  {{ if not (now.Before .Date) }}
-  <section style="margin-bottom:3rem">
-    <div class="dg-cta-band">
-      <div>
-        <h2>Was je erbij?</h2>
-        <p>Help ons de volgende editie te verbeteren en vul de evaluatie van {{ .Title }} in.</p>
-      </div>
-      <a class="dg-btn dg-btn--ghost" href="{{ "evaluatie/" | relLangURL }}">Evaluatie invullen →</a>
     </div>
   </section>
   {{ end }}
