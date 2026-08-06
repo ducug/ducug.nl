@@ -45,9 +45,13 @@
       </div>
       <h2 class="dg-evcard__title">{{ .Title }}</h2>
       <p class="dg-evcard__text">{{ .Date | time.Format "Monday 2 January 2006" }}<br>{{ .Params.location }}</p>
-      <div class="dg-evcard__count" data-countdown="{{ .Date.Format "2006-01-02" }}" hidden></div>
+      {{/* data-live-hide: draait de live-modus, dan staat "Vandaag · live" al
+           in het label hierboven en is de "Vandaag" van de countdown dubbel.
+           Zonder agenda-JSON start de live-modus niet en blijft de countdown
+           het enige dat de dag zelf aankondigt. */}}
+      <div class="dg-evcard__count" data-countdown="{{ .Date.Format "2006-01-02" }}" data-live-hide hidden></div>
       <div class="dg-evcard__chips">
-        <div class="dg-evcard__chip"><span>Entree</span><b>€0, altijd</b></div>
+        <div class="dg-evcard__chip"><span>Toegang</span><b>€0</b></div>
         <div class="dg-evcard__chip"><span>Voor</span><b>EUC-professionals</b></div>
       </div>
       {{ if .Params.eventbriteUrl }}

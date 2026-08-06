@@ -64,17 +64,29 @@
 
   /* Countdown — elements with data-countdown="YYYY-MM-DD" */
   document.querySelectorAll("[data-countdown]").forEach(function (el) {
-    var target = new Date(el.getAttribute("data-countdown") + "T09:00:00");
-    var days = Math.ceil((target - new Date()) / 86400000);
+    /* Kalenderdagen tellen, van middernacht tot middernacht. Meten vanaf het
+       tijdstip van het evenement liet de teller om 09:00 verspringen in plaats
+       van om middernacht, en noemde de ochtend van de evenementdag zelf nog
+       "1 dag te gaan". Math.round vangt de zomer- en wintertijdovergang op,
+       want zo'n etmaal duurt 23 of 25 uur. */
+    var target = new Date(el.getAttribute("data-countdown") + "T00:00:00");
+    var vandaag = new Date();
+    vandaag.setHours(0, 0, 0, 0);
+    var days = Math.round((target - vandaag) / 86400000);
     if (demoLive) days = 0;
-    if (days > 0) {
-      var weeks = Math.floor(days / 7);
-      var rest = days % 7;
-      el.innerHTML =
-        '<div><b>' + days + '</b><span>dag' + (days === 1 ? "" : "en") + '</span></div>' +
-        (weeks > 0 ? '<div><b>' + weeks + '</b><span>we' + (weeks === 1 ? "ek" : "ken") + '</span></div>' : "");
-      el.hidden = false;
+    if (days < 0) return;
+
+    /* Boven de 60 dagen is "18 weken" beter te bevatten dan "127 dagen";
+       daaronder tellen mensen in dagen. Altijd maar één eenheid tegelijk,
+       twee getallen naast elkaar lezen als een optelsom. */
+    if (days === 0) {
+      el.innerHTML = '<div><b>Vandaag</b></div>';
+    } else if (days > 60) {
+      el.innerHTML = '<div><b>' + Math.round(days / 7) + '</b><span>weken te gaan</span></div>';
+    } else {
+      el.innerHTML = '<div><b>' + days + '</b><span>dag' + (days === 1 ? "" : "en") + ' te gaan</span></div>';
     }
+    el.hidden = false;
   });
 
   /* Event-day logic: schedules carry data-event-date; rows carry data-start/data-end */

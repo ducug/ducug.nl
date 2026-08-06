@@ -651,11 +651,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.2rem;
 }
 
+/* Alles op één basislijn: "55 dagen te gaan" leest als een zin en benut de
+   breedte van de kaart, in plaats van drie regels boven elkaar. Het getal
+   staat vooraan, zodat het oog daar als eerste landt. */
 .dg-evcard__count b {
-  display: block;
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--dg-blue);
+  margin-right: 0.45rem;
 }
 
 .dg-evcard__count span {
