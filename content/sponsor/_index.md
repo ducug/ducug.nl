@@ -21,14 +21,14 @@ De DuCUG organiseert 2x per jaar evenementen voor de Citrix community. We brenge
 ### Zilver sponsoring
 
 - Logo op de webpagina van het betreffende evenement
-- 1 gegarandeerde deelnemers aan het event
+- 1 gegarandeerde deelnemer aan het event
 - Opstellen van een staande banner in de evenement ruimte
 - Mogelijkheid tot het aanbieden van “giveaways”
 - Mogelijkheid tot het aanbieden van “goodies”.
 
 ### Goud sponsoring
 
-- Logo op de website gedurende 1 kalander jaar
+- Logo op de website gedurende 1 kalender jaar
 - Logo op de webpagina’s van het betreffende evenementen
 - 2 gegarandeerde deelnemers aan het event
 - Opstellen van een staande banner in de evenement ruimte
@@ -37,7 +37,7 @@ De DuCUG organiseert 2x per jaar evenementen voor de Citrix community. We brenge
 
 ### Platinum sponsoring
 
-- Logo op de website gedurende 1 kalander jaar
+- Logo op de website gedurende 1 kalender jaar
 - 3 gegarandeerde deelnemers aan het event
 - Opstellen van een staande banner in de evenement ruimte
 - Mogelijkheid tot het aanbieden van “giveaways”
@@ -59,7 +59,4 @@ Vul het onderstaande formulier in.
 <noscript>
   <a href="https://podio.com/webforms/6266726/488258" target="_blank">Vul het formulier in via Podio</a>
 </noscript>
-<div class="podio-webform-container">
-A webform by Podio - <a class="podio-webform-inner" rel="nofollow" href="https://podio.com">click here</a> to get yours
-</div>
 <!-- END Podio web form -->

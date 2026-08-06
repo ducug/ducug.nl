@@ -6,7 +6,7 @@ heroTitle: 'De community <span class="dg-hero__title-accent">dóór en vóór</s
 heroLede: "Twee keer per jaar komen EUC-, Citrix- en Digital Workspace-specialisten uit heel Nederland samen voor een dag vol technische sessies, klantcases en discussie. De bijeenkomsten zijn toegankelijk voor een brede doelgroep en bieden veel gelegenheid om in contact te komen met gelijkgestemden."
 ---
 
-De **Dutch Citrix User Group (DuCUG)** is dé onafhankelijke community voor EUC-, Citrix- en Digital Workspace-professionals in Nederland. We organiseren meerdere keren per jaar evenementen met technische presentaties, klantcases en diepgaande discussies. Altijd gratis voor deelnemers.
+De **Dutch Citrix User Group (DuCUG)** is dé onafhankelijke community voor EUC-, Citrix- en Digital Workspace-professionals in Nederland. We organiseren meerdere keren per jaar evenementen met technische presentaties, klantcases en diepgaande discussies.
 
 Zes Citrix-professionals richtten de DuCUG op in oktober 2011, geïnspireerd door vergelijkbare user groups in de ons omringende landen. Sindsdien groeide de community uit tot een vaste ontmoetingsplaats voor iedereen die werkt met Citrix, EUC en de moderne digitale werkplek.
 
