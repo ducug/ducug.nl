@@ -38,14 +38,17 @@
   <section style="margin-bottom:3rem" data-demo-hide="geen-agenda">
     <div class="dg-section-head">
       <h2>Programma</h2>
-      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 JAN 2006" }}</span>
+      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 Jan 2006" | strings.ToUpper }}</span>
     </div>
     {{ partial "schedule.html" . }}
   </section>
   {{ end }}
 
-  {{/* Evaluatie-CTA: tonen vanaf de dag van het evenement zelf */}}
-  {{ if not (now.Before .Date) }}
+  {{/* Evaluatie-CTA: vanaf de dag van het evenement zelf, daarna 30 dagen.
+       Dit is een build-time check: het venster sluit pas als de site opnieuw
+       gebouwd wordt, niet vanzelf op de dertigste dag. */}}
+  {{ $evaluatieTot := .Date.AddDate 0 0 30 }}
+  {{ if and (not (now.Before .Date)) (now.Before $evaluatieTot) }}
   <section style="margin-bottom:3rem">
     <div class="dg-cta-band">
       <div>
@@ -63,7 +66,7 @@
   <section style="margin-bottom:3rem"{{ if $sessions }} hidden data-demo-show="geen-agenda"{{ end }}>
     <div class="dg-section-head">
       <h2>Programma</h2>
-      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 JAN 2006" }}</span>
+      <span class="dg-section-link" style="color:rgb(var(--color-neutral-500))">{{ .Date | time.Format "2 Jan 2006" | strings.ToUpper }}</span>
     </div>
     <p style="color:rgb(var(--color-neutral-500))">De agenda is nog niet bekend. Het programma verschijnt hier zodra het rond is.</p>
   </section>
