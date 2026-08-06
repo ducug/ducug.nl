@@ -3,6 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Hugo klikt datumafhankelijke dingen vast op het moment van bouwen: welk
+  # evenement "volgend" is, het aantal edities, en het evaluatievenster van
+  # 30 dagen. Zonder nachtelijke build blijven die staan tot de volgende push.
+  # Let op: GitHub zet geplande workflows uit na 60 dagen zonder repo-activiteit.
+  schedule:
+    - cron: "0 5 * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +23,7 @@ concurrency:
 jobs:
   build:
     name: Build Hugo site
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -84,7 +90,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     needs: build
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     environment:
       name: github-pages

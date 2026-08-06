@@ -17,7 +17,8 @@
         <a class="dg-nav__link" href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}aria-current="true"{{ end }}>{{ .Name }}</a>
         {{ end }}
         {{ with $next }}
-        <a class="dg-nav__cta" href="{{ if .Params.eventbriteUrl }}{{ .Params.eventbriteUrl }}{{ else }}{{ .RelPermalink }}{{ end }}" data-demo-hide="binnenkort">{{ .Title }} →</a>
+        {{/* Altijd naar de evenementpagina; daar staat de aanmeldknop al. */}}
+        <a class="dg-nav__cta" href="{{ .RelPermalink }}" data-demo-hide="binnenkort">{{ .Title }} →</a>
         {{ end }}
         <a class="dg-nav__cta" href="{{ "evenementen/" | relLangURL }}"{{ if $next }} hidden data-demo-show="binnenkort"{{ end }}>Binnenkort →</a>
         {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
