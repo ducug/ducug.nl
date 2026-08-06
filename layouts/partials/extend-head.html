@@ -1,7 +1,11 @@
-{{/* DuCUG: typography + theming */}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=Spline+Sans+Mono:wght@400..600&display=swap" rel="stylesheet">
+{{/* DuCUG: typography + theming.
+     Lettertypen worden zelf gehost (@font-face in assets/css/custom.css,
+     bestanden in static/fonts/). Bewust niet meer via fonts.googleapis.com:
+     dat gaf bij elke paginaweergave het IP-adres van de bezoeker aan Google.
+     Alleen de twee latin-subsets die vrijwel elke pagina nodig heeft worden
+     voorgeladen; de rest volgt uit de unicode-ranges. */}}
+<link rel="preload" href="/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="theme-color" content="#080e1a">
 
 {{/* DuCUG: Microsoft Clarity — laadt cookieloos (Consent Mode aan in het
