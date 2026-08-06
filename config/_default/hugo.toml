@@ -6,6 +6,10 @@ title = "DuCUG · Dutch Citrix User Group"
 # die pagina's niet en verschijnt een nieuw evenement nergens op de site.
 buildFuture = true
 
+# Blowfish levert de robots.txt-template; die staat alleen crawlen toe in een
+# productiebuild en verwijst naar de sitemap.
+enableRobotsTXT = true
+
 [module]
   [[module.imports]]
     path = "github.com/nunocoracao/blowfish/v2"

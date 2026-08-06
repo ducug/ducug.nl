@@ -1,0 +1,47 @@
+{{- /* DuCUG social card: 1200x630 OG-afbeelding, bij de build samengesteld.
+       Evenementpagina's krijgen hun eigen nummer, datum en locatie uit de
+       paginadata, zodat een kaart nooit kan verouderen. Achtergrond staat in
+       assets/img/social/base.png; alle tekst wordt hier getekend. */ -}}
+{{- $base := resources.Get "img/social/base.png" -}}
+{{- $bold := resources.Get "fonts/BricolageGrotesque-Bold.ttf" -}}
+{{- $med := resources.Get "fonts/BricolageGrotesque-Medium.ttf" -}}
+
+{{- /* Heeft de pagina al een eigen afbeelding, dan zet _internal/opengraph.html
+       die zelf neer en zouden wij een tweede og:image toevoegen. */ -}}
+{{- $own := or .Params.images (.Resources.GetMatch "*feature*") -}}
+
+{{- if and $base $bold $med (not $own) -}}
+  {{- $title := "DuCUG" -}}
+  {{- $line1 := "De community door en voor" -}}
+  {{- $line2 := "Citrix-professionals" -}}
+  {{- $number := "" -}}
+
+  {{- if and (eq .Section "evenementen") .Params.eventNumber -}}
+    {{- $title = .Title -}}
+    {{- $line1 = .Date | time.Format "Monday 2 January 2006" -}}
+    {{- /* Alleen de locatienaam; het volledige adres past niet op de kaart. */ -}}
+    {{- $line2 = index (split .Params.location ",") 0 -}}
+    {{- $number = printf "#%d" .Params.eventNumber -}}
+  {{- end -}}
+
+  {{- $f := slice
+    (images.Text "DUTCH CITRIX USER GROUP" (dict "color" "#d9523e" "size" 26 "x" 104 "y" 88 "font" $med))
+    (images.Text $title (dict "color" "#e8eefb" "size" 92 "x" 80 "y" 210 "font" $bold))
+    (images.Text $line1 (dict "color" "#9fb0cf" "size" 34 "x" 80 "y" 350 "font" $med))
+    (images.Text $line2 (dict "color" "#9fb0cf" "size" 34 "x" 80 "y" 404 "font" $med))
+    (images.Text "ducug.nl" (dict "color" "#6f9ee8" "size" 30 "x" 80 "y" 512 "font" $med))
+  -}}
+
+  {{- with $number -}}
+    {{- /* Geen tekstbreedte in Hugo, dus de x volgt uit het aantal tekens. */ -}}
+    {{- $x := cond (gt (len .) 2) 946 1022 -}}
+    {{- $f = $f | append (images.Text . (dict "color" "#2d6bcf" "size" 110 "x" $x "y" 74 "font" $bold)) -}}
+  {{- end -}}
+
+  {{- $card := $base.Filter $f -}}
+  <meta property="og:image" content="{{ $card.Permalink }}" />
+  <meta property="og:image:width" content="{{ $card.Width }}" />
+  <meta property="og:image:height" content="{{ $card.Height }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ $card.Permalink }}" />
+{{- end -}}
