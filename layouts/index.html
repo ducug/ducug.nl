@@ -12,7 +12,12 @@
 {{/* ============================== Hero ============================== */}}
 {{- $heroImg := resources.Get "img/site/banner.jpg" -}}
 <section class="dg-hero dg-bleed{{ if $heroImg }} dg-hero--photo{{ end }}">
-  {{ with $heroImg }}{{ $b := .Resize "1800x q70" }}<img class="dg-hero__bg" src="{{ $b.RelPermalink }}" alt="" aria-hidden="true" loading="eager">{{ end }}
+  {{/* Dit is het LCP-element. fetchpriority=high zet hem vooraan in de wachtrij,
+       WebP plus een srcset schelen op mobiel het leeuwendeel van de 194 KiB. */}}
+  {{ with $heroImg }}
+  {{ $lg := .Resize "1800x webp q72" }}{{ $sm := .Resize "900x webp q72" }}
+  <img class="dg-hero__bg" src="{{ $lg.RelPermalink }}" srcset="{{ $sm.RelPermalink }} 900w, {{ $lg.RelPermalink }} 1800w" sizes="100vw" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
+  {{ end }}
   <div class="dg-hero__circle" aria-hidden="true"></div>
   <div class="dg-hero__in">
     <div class="dg-hero__copy">
@@ -119,8 +124,10 @@
         </div>
       </div>
       <div class="dg-community__photos dg-reveal">
-        {{ with $p1 }}{{ $i := .Resize "900x q75" }}<img src="{{ $i.RelPermalink }}" alt="Deelnemers tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
-        {{ with $p2 }}{{ $i := .Resize "700x q75" }}<img src="{{ $i.RelPermalink }}" alt="De zaal tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
+        {{/* Decoratieve foto's; WebP en iets kleinere bronnen halen ruim 80 KiB weg
+             zonder dat je er op een gewoon scherm iets van ziet. */}}
+        {{ with $p1 }}{{ $i := .Resize "760x webp q75" }}<img src="{{ $i.RelPermalink }}" alt="Deelnemers tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
+        {{ with $p2 }}{{ $i := .Resize "620x webp q75" }}<img src="{{ $i.RelPermalink }}" alt="De zaal tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
         <span class="dg-community__chip"><b>BYOS</b> · het podium is van jou</span>
       </div>
     </div>

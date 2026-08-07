@@ -4,8 +4,11 @@
   <div class="dg-wrap">
     <div class="dg-header__in">
       <a href="{{ "" | relLangURL }}" class="dg-wordmark" aria-label="DuCUG home">
+        {{/* Bron is 1200x628 (131 KiB) terwijl de badge op 2.4rem hoog staat.
+             300px breed dekt ook schermen met hoge pixeldichtheid. */}}
         {{ with resources.Get "img/site/ducug-badge.png" }}
-        <img src="{{ .RelPermalink }}" alt="DuCUG, Citrix User Group Community" class="dg-wordmark__badge nozoom" width="{{ .Width }}" height="{{ .Height }}">
+        {{ $b := .Resize "300x webp q82" }}
+        <img src="{{ $b.RelPermalink }}" alt="DuCUG, Citrix User Group Community" class="dg-wordmark__badge nozoom" width="{{ $b.Width }}" height="{{ $b.Height }}">
         {{ end }}
         <span>
           <span class="dg-wordmark__name">DuCUG</span>
