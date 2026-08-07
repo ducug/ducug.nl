@@ -15,7 +15,9 @@
   {{/* Dit is het LCP-element. fetchpriority=high zet hem vooraan in de wachtrij,
        WebP plus een srcset schelen op mobiel het leeuwendeel van de 194 KiB. */}}
   {{ with $heroImg }}
-  {{ $lg := .Resize "1800x webp q72" }}{{ $sm := .Resize "900x webp q72" }}
+  {{/* Lage kwaliteit kan hier: er ligt een overlay overheen en de kop staat
+       er bovenop, dus detail in de foto zie je toch nauwelijks. */}}
+  {{ $lg := .Resize "1800x webp q62" }}{{ $sm := .Resize "900x webp q52" }}
   <img class="dg-hero__bg" src="{{ $lg.RelPermalink }}" srcset="{{ $sm.RelPermalink }} 900w, {{ $lg.RelPermalink }} 1800w" sizes="100vw" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
   {{ end }}
   <div class="dg-hero__circle" aria-hidden="true"></div>
@@ -126,8 +128,8 @@
       <div class="dg-community__photos dg-reveal">
         {{/* Decoratieve foto's; WebP en iets kleinere bronnen halen ruim 80 KiB weg
              zonder dat je er op een gewoon scherm iets van ziet. */}}
-        {{ with $p1 }}{{ $i := .Resize "760x webp q75" }}<img src="{{ $i.RelPermalink }}" alt="Deelnemers tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
-        {{ with $p2 }}{{ $i := .Resize "620x webp q75" }}<img src="{{ $i.RelPermalink }}" alt="De zaal tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
+        {{ with $p1 }}{{ $i := .Resize "600x webp q70" }}<img src="{{ $i.RelPermalink }}" alt="Deelnemers tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
+        {{ with $p2 }}{{ $i := .Resize "560x webp q70" }}<img src="{{ $i.RelPermalink }}" alt="De zaal tijdens een DuCUG-evenement" class="nozoom" loading="lazy">{{ end }}
         <span class="dg-community__chip"><b>BYOS</b> · het podium is van jou</span>
       </div>
     </div>

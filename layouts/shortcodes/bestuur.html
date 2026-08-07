@@ -1,7 +1,9 @@
 {{- /* Board member grid, fed by data/bestuur.toml */ -}}
 <div class="dg-board">
   {{ range (hugo.Data).bestuur.lid }}
+  {{/* Ook deze gingen ongeschaald mee; de kaarten tonen ze vierkant en klein. */}}
   {{ $foto := and .foto (resources.Get .foto) }}
+  {{ $foto = and $foto ($foto.Resize "400x webp q80") }}
   <div class="dg-board__card">
     {{ if $foto }}
     <img src="{{ $foto.RelPermalink }}" alt="{{ .naam }}" width="{{ $foto.Width }}" height="{{ $foto.Height }}" loading="lazy">

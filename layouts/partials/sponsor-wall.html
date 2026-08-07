@@ -1,7 +1,10 @@
 {{ if (hugo.Data).sponsors.sponsor }}
 <div class="dg-sponsor-wall">
   {{ range (hugo.Data).sponsors.sponsor }}
+  {{/* Logo's gingen ongeschaald de deur uit terwijl ze op max 3.2rem hoog
+       staan. 320px breed is ruim voldoende, ook bij hoge pixeldichtheid. */}}
   {{ $logo := and .logo (resources.Get .logo) }}
+  {{ $logo = and $logo ($logo.Resize "320x webp q82") }}
   <a href="{{ .url }}" target="_blank" rel="noopener sponsored" title="{{ .name }}">
     {{ if $logo }}
     <img src="{{ $logo.RelPermalink }}" alt="{{ .name }}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" class="nozoom" loading="lazy">
