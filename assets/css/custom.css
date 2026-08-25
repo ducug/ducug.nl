@@ -893,7 +893,8 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: none;
 }
 
-.dg-schedule__row--talk:hover {
+.dg-schedule__row--talk:hover,
+.dg-schedule__row--byos:hover {
   background: var(--dg-soft);
 }
 
@@ -959,6 +960,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .dark .dg-tag--sponsor {
   color: var(--dg-blue-soft);
+}
+
+.dg-tag--byos {
+  color: var(--dg-green);
+  background: color-mix(in srgb, var(--dg-green) 12%, transparent);
 }
 
 .dg-tag--featured {

@@ -14,6 +14,7 @@
       <p class="dg-schedule__title">
         {{- .title -}}
         {{- if eq $type "sponsor" }}<span class="dg-tag dg-tag--sponsor">Sponsor</span>{{ end -}}
+        {{- if eq $type "byos" }}<span class="dg-tag dg-tag--byos">BYOS</span>{{ end -}}
         {{- if .featured }}<span class="dg-tag dg-tag--featured">Keynote</span>{{ end -}}
         <span class="dg-now-pill">● Nu</span>
       </p>

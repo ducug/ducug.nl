@@ -35,9 +35,9 @@
           },
           "type": {
             "type": "string",
-            "enum": ["talk", "sponsor", "break", "org", "social"],
+            "enum": ["talk", "sponsor", "byos", "break", "org", "social"],
             "default": "talk",
-            "description": "talk = sessie · sponsor = sponsorsessie (Sponsor-tag) · break = pauze · org = organisatie (opening/afsluiting) · social = borrel/diner."
+            "description": "talk = sessie · sponsor = sponsorsessie (Sponsor-tag) · byos = Bring Your Own Session (BYOS-tag) · break = pauze · org = organisatie (opening/afsluiting) · social = borrel/diner."
           },
           "featured": {
             "type": "boolean",
