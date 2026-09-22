@@ -35,12 +35,6 @@
   tier = "silver"
 
 [[sponsor]]
-  name = "Recast Software"
-  logo = "img/sponsors/recast-software.jpg"
-  url  = "https://recastsoftware.com"
-  tier = "silver"
-
-[[sponsor]]
   name = "ThinScale"
   logo = "img/sponsors/thinscale.png"
   url  = "https://www.thinscale.com"
