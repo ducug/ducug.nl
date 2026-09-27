@@ -1,4 +1,11 @@
 {{ define "main" }}
+{{- /* Publiceer elke data/agenda/ducug-NN.json als /agenda/ducug-NN.json, zodat
+     andere apps de agenda kunnen ophalen zonder de pagina te scrapen.
+     Alleen "sessions": het relatieve $schema-pad klopt niet op de site. */ -}}
+{{- range $name, $agenda := hugo.Data.agenda -}}
+  {{- $json := jsonify (dict "sessions" $agenda.sessions) -}}
+  {{- (resources.FromString (printf "agenda/%s.json" $name) $json).Publish -}}
+{{- end -}}
 {{- $events := where .Site.RegularPages "Section" "evenementen" -}}
 {{- /* "Volgend evenement" = niet gearchiveerd én vandaag of in de toekomst.
      Een editie die geweest is maar nog niet gearchiveerd, wordt niet opnieuw
