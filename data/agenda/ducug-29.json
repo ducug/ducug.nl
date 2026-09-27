@@ -3,7 +3,7 @@
   "sessions": [
     { "start": "09:10", "end": "09:20", "title": "Opening", "speakers": "DuCUG", "type": "org" },
     { "start": "09:20", "end": "10:05", "title": "Keynote sessie", "speakers": "Rajendra Soebhag, Nanno Ouwehand", "type": "sponsor", "featured": true },
-    { "start": "10:10", "end": "10:40", "title": "PowerShell to the Rescue", "speakers": "John Billekens", "type": "byos" },
+    { "start": "10:10", "end": "10:40", "title": "Automagic packaging", "speakers": "John Billekens", "type": "byos" },
     { "start": "10:40", "end": "11:10", "title": "Pauze", "type": "break" },
     { "start": "11:10", "end": "11:40", "title": "eG Sponsor sessie", "speakers": "Erik van Veenendaal", "type": "sponsor" },
     { "start": "11:45", "end": "12:15", "title": "NetScaler Optimal Gateway Routing as a Security Feature", "speakers": "Koen Warson", "type": "byos" },
