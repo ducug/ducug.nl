@@ -11,7 +11,7 @@ De DuCUG hoort graag wat er nog beter kan. We vragen jullie dan ook om naar iede
 <!-- BEGIN Podio web form -->
 <script src="https://podio.com/webforms/30849588/2625407.js"></script>
 <script type="text/javascript">
-  _podioWebForm.render("2601741")
+  _podioWebForm.render("2625407")
 </script>
 <noscript>
   <a href="https://podio.com/webforms/30849588/2625407" target="_blank">Vul het formulier in via Podio</a>
