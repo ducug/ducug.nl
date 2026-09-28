@@ -90,6 +90,7 @@
   });
 
   /* Event-day logic: schedules carry data-event-date; rows carry data-start/data-end */
+  var scrolledToNow = false;
   document.querySelectorAll("[data-event-date]").forEach(function (sched) {
     var isToday = demoLive || sched.getAttribute("data-event-date") === todayStr(new Date());
     if (!isToday) return;
@@ -114,9 +115,17 @@
         }
       }
       if (current) current.classList.add("is-now");
+      return current;
     }
 
-    highlight();
+    /* Bij openen direct naar de lopende sessie scrollen. Alleen de eerste keer,
+       niet bij de minuutverversing, en niet als er een #anker in de URL staat
+       of de browser al een scrollpositie heeft teruggezet. */
+    var first = highlight();
+    if (first && !scrolledToNow && !window.location.hash && window.scrollY === 0) {
+      scrolledToNow = true;
+      first.scrollIntoView({ block: "center" });
+    }
     setInterval(highlight, 60000);
   });
 
