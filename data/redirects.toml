@@ -1,0 +1,10 @@
+# Korte links naar externe sites, zoals ducug.nl/presentaties2609.
+# Elke [[redirect]] wordt bij het bouwen een pagina die de bezoeker direct
+# doorstuurt. GitHub Pages kent geen echte 301, dus dit gaat via een
+# meta refresh (zie layouts/redirect.html). De pagina's staan niet in de
+# sitemap en krijgen noindex. Is url nog leeg, dan toont de pagina een
+# melding dat de bezoeker later terug moet komen.
+
+[[redirect]]
+  path = "presentaties2609"
+  url  = ""  # nog leeg: bezoekers zien dan "kom later terug"

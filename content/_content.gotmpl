@@ -1,0 +1,11 @@
+{{/* Maakt voor elke korte link in data/redirects.toml een doorstuurpagina. */}}
+{{ range hugo.Data.redirects.redirect }}
+  {{ $.AddPage (dict
+    "path"   .path
+    "title"  "Doorsturen"
+    "kind"   "page"
+    "layout" "redirect"
+    "build"  (dict "list" "never" "render" "always")
+    "params" (dict "redirectTo" .url)
+  ) }}
+{{ end }}

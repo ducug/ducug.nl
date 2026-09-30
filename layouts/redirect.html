@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  {{- with .Params.redirectTo }}
+  <title>Doorsturen…</title>
+  <link rel="canonical" href="{{ . }}">
+  <meta http-equiv="refresh" content="0; url={{ . }}">
+  <script>location.replace({{ . }})</script>
+  {{- else }}
+  <title>Nog niet beschikbaar · DuCUG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px; box-sizing: border-box;
+           font-family: system-ui, sans-serif; background: #f8fafc; color: #0f172a; text-align: center; }
+    @media (prefers-color-scheme: dark) { body { background: #080e1a; color: #e2e8f0; } a { color: #93c5fd; } }
+  </style>
+  {{- end }}
+</head>
+<body>
+  {{- with .Params.redirectTo }}
+  <p>Je wordt doorgestuurd. Gebeurt er niets? <a href="{{ . }}">Klik hier</a>.</p>
+  {{- else }}
+  <main>
+    <h1>Nog even geduld</h1>
+    <p>De presentaties zijn nog niet beschikbaar. Kom later nog eens terug via deze link.</p>
+    <p><a href="{{ site.Home.RelPermalink }}">Naar ducug.nl</a></p>
+  </main>
+  {{- end }}
+</body>
+</html>
