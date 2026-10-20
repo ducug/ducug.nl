@@ -11,7 +11,7 @@ aliases        = ["/evenementen/citrix-user-group-conferentie-29/"]
 
 ## Verslag
 
-Op woensdag 29 september 2026 vond het tweede DuCUG evenement van 2026 plaats opnieuw op de vertrouwde locatie De Duikenbrug in Echteld.
+Op woensdag 30 september 2026 vond het tweede DuCUG-evenement van 2026 plaats, opnieuw op de vertrouwde locatie De Oude Duikenburg in Echteld.
 
 Het evenement werd geopend door Barry. Naast het bedanken van de sponsoren en het doorlopen van de agenda was er meer nieuws:
 
